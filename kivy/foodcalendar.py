@@ -117,9 +117,9 @@ class CalendarWidget(RelativeLayout):
                 this_month = self.active_date[1]
                 if day[2] == 0:
                     if index == 0:
-                        this_month -= 1
+                        this_month = (this_month+10) % 12 + 1
                     else:
-                        this_month += 1
+                        this_month = this_month % 12 + 1
                 this_date = datetime(self.active_date[2],this_month,day[0])
                 date_str = cal_data.formatToDB(day=day[0],
                                                 month=this_month,
