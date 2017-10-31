@@ -27,6 +27,7 @@ class MyApp(App):
         with open(path+'/app.conf','r') as configfile:
             config = json.load(configfile)
         self.server = config["server"]
+        print self.server
 
     def build(self):
 #        dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -36,9 +37,9 @@ class MyApp(App):
         #return LoginScreen()
 
     def getCalendarData(self):
-#        r = requests.get("http://" + self.server + "/api/calendar")
-#        return r.json()
-        return {}
+        r = requests.get("http://" + self.server + "/api/calendar")
+        return r.json()
+#        return {}
 
 if __name__ == '__main__':
     MyApp().run()
